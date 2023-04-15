@@ -1,8 +1,10 @@
 from typing import Dict
-
+from nfa_graphing import draw_nfa
 from input_handler import *
 from shunt_yard import *
+from dfa import nfa_to_dfa
 from nfa import NFA, State
+from json_settings import write_dict_to_json
 from NFA_construction import concatenate_NFAs, \
     oring_NFAs, \
     zero_or_more_NFA, \
@@ -84,6 +86,14 @@ def main():
             print(start.name)
             print(end.name)
             print(NFA_to_print)
+            for key, value in NFA_to_print.items():
+                print(f"state: {key[0]}, input: {key[1]} -> go to {value}")
+            write_dict_to_json(NFA_to_print,start.name, end.name, 'NFA')
+            draw_nfa(NFA_to_print, start.name, end.name)
+            nfa_to_dfa(NFA_to_print, start.name, end.name)
+        break
+
+
 
 
 if __name__ == "__main__":

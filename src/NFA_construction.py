@@ -50,8 +50,6 @@ def zero_or_more_NFA(nfa: NFA):
     nfa.set_start_state(new_start_state.name)
     nfa.set_end_state(new_end_state.name)
     nfa.link_states('ε', nfa.get_start_state(), nfa.get_end_state())
-    print(nfa.get_start_state().name)
-    print(nfa.get_end_state().name)
     return nfa
 
 def one_or_more_NFA(nfa: NFA):
