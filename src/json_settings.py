@@ -15,7 +15,8 @@ def write_dict_to_json(d, start, end, filename):
         new_dict[src]["isTerminatingState"] = src in final_states or v[0] in final_states
         if v[0] not in new_dict:
             new_dict[v[0]] = {"isTerminatingState": bool(v[0] in final_states)}
-    new_dict[end]["isTerminatingState"] = True
+    for each_end in end:
+        new_dict[each_end]["isTerminatingState"] = True
     # Add line breaks after each state
     json_str = json.dumps(new_dict, indent=4)
     for state in new_dict.keys():

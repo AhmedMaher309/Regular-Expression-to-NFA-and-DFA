@@ -2,7 +2,7 @@ from typing import Dict
 from nfa_graphing import draw_nfa
 from input_handler import *
 from shunt_yard import *
-from dfa import nfa_to_dfa
+from dfa import nfa_to_dfa, dfa_in_simple_form
 from nfa import NFA, State
 from json_settings import write_dict_to_json
 from NFA_construction import concatenate_NFAs, \
@@ -40,6 +40,7 @@ def postfix_splitter(postfix):
         else:
             postfix_list.append(postfix[i])
             i += 1
+    print(postfix_list)
     return postfix_list
 
 def postfix_to_NFA_creator(postfix_list):
@@ -88,11 +89,26 @@ def main():
             print(NFA_to_print)
             for key, value in NFA_to_print.items():
                 print(f"state: {key[0]}, input: {key[1]} -> go to {value}")
-            write_dict_to_json(NFA_to_print,start.name, end.name, 'NFA')
-            draw_nfa(NFA_to_print, start.name, end.name)
-            nfa_to_dfa(NFA_to_print, start.name, end.name)
-        break
+            print("=================================================================================================================================")
+            draw_nfa(NFA_to_print, start.name, [end.name], "nfa")
+            dfa, dfa_start, dfa_end = nfa_to_dfa(NFA_to_print, start.name, end.name)
+            for key, value in dfa.items():
+                print(f"state: {key[0]}, input: {key[1]} -> go to {value}")
+            print(dfa_start)
+            print(dfa_end)
+            print("===============================================================================================================================")
+            new_dfa, new_start, new_end = dfa_in_simple_form(dfa, dfa_start, dfa_end)
+            draw_nfa(new_dfa, new_start, list(new_end), "dfa")
+            print(new_start)
+            print(new_end)
+            print("=========================================================================================================================================")
+            for key, value in new_dfa.items():
+                print(f"state: {key[0]}, input: {key[1]} -> go to {value}")
 
+            write_dict_to_json(NFA_to_print, start.name, [end.name], 'NFA')
+            write_dict_to_json(new_dfa, new_start, new_end, 'DFA')
+
+        break
 
 
 
