@@ -64,30 +64,3 @@ def dfa_in_simple_form(dfa, dfa_start, dfa_end):
         new_dfa[new_key] = [new_value]
     return new_dfa, start_state, end_state
 
-
-
-
-
-
-
-#
-# def nfa_to_dfa_json(nfa, start, end):
-#     # Convert the NFA to a DFA
-#     dfa, dfa_start, dfa_end = nfa_to_dfa(nfa, start, end)
-#
-#     # Convert the DFA to a dictionary with string keys
-#     dfa_dict = {}
-#     for (state, symbol), next_state in dfa.items():
-#         state_str = ','.join(sorted(state))
-#         next_state_str = ','.join(sorted(next_state))
-#         dfa_dict[f'({state_str}, {symbol})'] = next_state_str
-#
-#     # Create a dictionary representing the DFA
-#     dfa_json = {
-#         'start': ','.join(sorted(dfa_start)),
-#         'end': ','.join(sorted(dfa_end)),
-#         'transitions': dfa_dict,
-#     }
-#
-#     # Serialize the dictionary to a JSON string
-#     return json.dumps(dfa_json, indent=4)
