@@ -30,9 +30,7 @@ Here are some examples of regular expressions you can try:
     a(b|c)+d
 
 
-## Graph Examples
-https://github.com/AhmedMaher309/Regular-Expression-to-NFA-and-DFA/blob/main/src/dfa.png
+## Screenshots
+![dfa.png](https://raw.githubusercontent.com/AhmedMaher309/Regular-Expression-to-NFA-and-DFA/main/src/dfa.png)
 
-
-https://github.com/AhmedMaher309/Regular-Expression-to-NFA-and-DFA/blob/main/src/nfa
-
+![nfa.png](https://raw.githubusercontent.com/AhmedMaher309/Regular-Expression-to-NFA-and-DFA/main/src/nfa.png)
