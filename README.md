@@ -26,8 +26,9 @@ Here are some examples of regular expressions you can try:
 
     (a|b)*
     a*b+
-    a.b.c
+    abc
     a(b|c)+d
+    [a-z](a|b)
 
 
 ## Screenshots
