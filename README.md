@@ -31,6 +31,6 @@ Here are some examples of regular expressions you can try:
 
 
 ## Screenshots
-![dfa.png](docs/dfa.png)
+![nfa](docs/nfa)
 
 ![nfa.png](https://raw.githubusercontent.com/AhmedMaher309/Regular-Expression-to-NFA-and-DFA/main/src/nfa.png)
